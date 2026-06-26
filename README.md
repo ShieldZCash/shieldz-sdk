@@ -157,6 +157,19 @@ const shieldz = new Shieldz({
 });
 ```
 
+## Security & supply chain
+
+Zero runtime dependencies, and every release is verifiable end-to-end:
+
+[![Socket](https://socket.dev/api/badge/npm/package/@shieldz/sdk)](https://socket.dev/npm/package/@shieldz/sdk)
+[![Snyk](https://snyk.io/advisor/npm-package/@shieldz/sdk/badge.svg)](https://snyk.io/advisor/npm-package/@shieldz/sdk)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ShieldZCash/shieldz-sdk/badge)](https://scorecard.dev/viewer/?uri=github.com/ShieldZCash/shieldz-sdk)
+
+- **npm provenance** — published from CI with a Sigstore attestation (the "Provenance" badge on npm links the exact commit + workflow).
+- **SBOM + checksums + signature** — each [GitHub Release](https://github.com/ShieldZCash/shieldz-sdk/releases) ships a CycloneDX SBOM, `SHASUMS256.txt`, and a keyless cosign signature.
+- **Scanned** — CodeQL, OSV-Scanner, and OpenSSF Scorecard run in CI; dependencies tracked by Dependabot.
+- Inspect on [deps.dev](https://deps.dev/npm/%40shieldz%2Fsdk) and [ecosyste.ms](https://packages.ecosyste.ms/registries/npmjs.org/packages/@shieldz/sdk).
+
 ## Links
 
 - Docs / API quickstart: https://shieldz.cash/docs
