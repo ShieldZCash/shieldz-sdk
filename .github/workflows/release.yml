@@ -35,7 +35,7 @@ jobs:
       - name: Cosign keyless sign checksums
         run: cosign sign-blob --yes SHASUMS256.txt --output-signature SHASUMS256.txt.sig --output-certificate SHASUMS256.txt.pem
       - name: Upload release assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             *.tgz
