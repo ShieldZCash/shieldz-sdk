@@ -1,6 +1,6 @@
 {
   "name": "@shieldz/sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Official Node/TypeScript SDK for Shieldz — non-custodial crypto payments with $0 fees. Create invoices, accept USDC/USDT/BTC/ZEC, and verify webhooks.",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -16,7 +16,8 @@
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.js"
       }
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
