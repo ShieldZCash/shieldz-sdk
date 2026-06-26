@@ -1,0 +1,66 @@
+{
+  "name": "@shieldz/sdk",
+  "version": "0.2.0",
+  "description": "Official Node/TypeScript SDK for Shieldz — non-custodial crypto payments with $0 fees. Create invoices, accept USDC/USDT/BTC/ZEC, and verify webhooks.",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/fixup.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test",
+    "test:live": "SHIELDZ_LIVE_TEST=1 npm test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "shieldz",
+    "crypto",
+    "payments",
+    "payment-gateway",
+    "non-custodial",
+    "usdc",
+    "usdt",
+    "bitcoin",
+    "zcash",
+    "stablecoin",
+    "web3",
+    "crypto-payments",
+    "coinbase-commerce-alternative",
+    "btcpay-alternative"
+  ],
+  "license": "MIT",
+  "author": "Deniz Yanbollu (@dnzynbl)",
+  "homepage": "https://shieldz.cash",
+  "bugs": {
+    "url": "https://github.com/ShieldZCash/shieldz-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShieldZCash/shieldz-node.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

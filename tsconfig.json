@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.esm.json",
+  "comment": "Default config for editors / `npm run typecheck`. Builds emit via tsconfig.esm.json + tsconfig.cjs.json."
+}
