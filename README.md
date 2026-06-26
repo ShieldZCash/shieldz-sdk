@@ -172,6 +172,7 @@ Zero runtime dependencies, and every release is verifiable end-to-end:
 
 ## Links
 
+- API reference (TypeDoc): https://shieldzcash.github.io/shieldz-sdk/
 - Docs / API quickstart: https://shieldz.cash/docs
 - How it works: https://shieldz.cash/methodology
 - Is it safe? (non-custodial proof): https://shieldz.cash/verify
