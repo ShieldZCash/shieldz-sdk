@@ -1,5 +1,7 @@
 # @shieldz/sdk
 
+[![CI](https://github.com/ShieldZCash/shieldz-node/actions/workflows/ci.yml/badge.svg)](https://github.com/ShieldZCash/shieldz-node/actions/workflows/ci.yml)
+
 Official Node / TypeScript SDK for [**Shieldz**](https://shieldz.cash) — non-custodial crypto payments with **$0 fees**.
 
 Accept **USDC/USDT** across Base, Arbitrum, Optimism, Polygon, and Ethereum, plus native **Bitcoin** and shielded **Zcash**. Funds settle straight to your own wallet — Shieldz never holds them, and never asks for your keys.
