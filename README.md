@@ -2,6 +2,10 @@
 
 [![npm](https://img.shields.io/npm/v/@shieldz/sdk.svg)](https://www.npmjs.com/package/@shieldz/sdk)
 [![CI](https://github.com/ShieldZCash/shieldz-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/ShieldZCash/shieldz-sdk/actions/workflows/ci.yml)
+[![types](https://img.shields.io/npm/types/@shieldz/sdk.svg)](https://www.npmjs.com/package/@shieldz/sdk)
+[![minzipped](https://img.shields.io/bundlephobia/minzip/@shieldz/sdk)](https://bundlephobia.com/package/@shieldz/sdk)
+[![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://github.com/ShieldZCash/shieldz-sdk/blob/main/package.json)
+[![license](https://img.shields.io/npm/l/@shieldz/sdk.svg)](https://github.com/ShieldZCash/shieldz-sdk/blob/main/LICENSE)
 
 Official Node / TypeScript SDK for [**Shieldz**](https://shieldz.cash) — non-custodial crypto payments with **$0 fees**.
 

@@ -50,11 +50,25 @@
     "web3",
     "crypto-payments",
     "coinbase-commerce-alternative",
-    "btcpay-alternative"
+    "btcpay-alternative",
+    "ethereum",
+    "base",
+    "arbitrum",
+    "webhook",
+    "webhooks",
+    "sdk",
+    "typescript",
+    "esm",
+    "zero-dependencies",
+    "edge",
+    "deno",
+    "bun",
+    "no-kyc"
   ],
   "license": "MIT",
   "author": "Deniz Yanbollu (@dnzynbl)",
   "homepage": "https://shieldz.cash",
+  "funding": "https://shieldz.cash",
   "bugs": {
     "url": "https://github.com/ShieldZCash/shieldz-sdk/issues"
   },
