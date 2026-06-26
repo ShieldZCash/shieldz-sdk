@@ -4,11 +4,14 @@ import { verifySignature, constructEvent, SignatureVerificationError } from "../
 
 const SECRET = "whsec_test_secret";
 const enc = new TextEncoder();
+// Resolve WebCrypto the way the SDK does, so fixtures work on Node 18 too.
+const subtle =
+  globalThis.crypto?.subtle ?? (await import("node:crypto")).webcrypto.subtle;
 
 /** Sign exactly like the Shieldz server does, for fixtures. */
 async function sign(body, secret = SECRET, t = Math.floor(Date.now() / 1000)) {
-  const key = await crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  const buf = await crypto.subtle.sign("HMAC", key, enc.encode(`${t}.${body}`));
+  const key = await subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const buf = await subtle.sign("HMAC", key, enc.encode(`${t}.${body}`));
   const hex = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
   return { header: `t=${t},v1=${hex}`, hex, t };
 }

@@ -2,6 +2,7 @@
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const sdk = require("../dist/cjs/index.js");
+const subtle = globalThis.crypto?.subtle ?? require("node:crypto").webcrypto.subtle;
 
 test("CJS build loads via require() with named + default exports", () => {
   assert.equal(typeof sdk.Shieldz, "function");
@@ -21,8 +22,8 @@ test("CJS webhook verify works (async / WebCrypto)", async () => {
   const secret = "whsec_cjs";
   const t = Math.floor(Date.now() / 1000);
   const body = JSON.stringify({ type: "invoice.paid", id: "inv_1" });
-  const key = await crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  const buf = await crypto.subtle.sign("HMAC", key, enc.encode(`${t}.${body}`));
+  const key = await subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const buf = await subtle.sign("HMAC", key, enc.encode(`${t}.${body}`));
   const hex = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
   const event = await sdk.constructEvent(body, `t=${t},v1=${hex}`, secret);
   assert.equal(event.type, "invoice.paid");
