@@ -1,6 +1,6 @@
 # @shieldz/sdk
 
-[![CI](https://github.com/ShieldZCash/shieldz-node/actions/workflows/ci.yml/badge.svg)](https://github.com/ShieldZCash/shieldz-node/actions/workflows/ci.yml)
+[![CI](https://github.com/ShieldZCash/shieldz-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/ShieldZCash/shieldz-sdk/actions/workflows/ci.yml)
 
 Official Node / TypeScript SDK for [**Shieldz**](https://shieldz.cash) — non-custodial crypto payments with **$0 fees**.
 

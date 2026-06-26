@@ -54,11 +54,11 @@
   "author": "Deniz Yanbollu (@dnzynbl)",
   "homepage": "https://shieldz.cash",
   "bugs": {
-    "url": "https://github.com/ShieldZCash/shieldz-node/issues"
+    "url": "https://github.com/ShieldZCash/shieldz-sdk/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShieldZCash/shieldz-node.git"
+    "url": "git+https://github.com/ShieldZCash/shieldz-sdk.git"
   },
   "devDependencies": {
     "typescript": "^5.6.0"
