@@ -1,0 +1,30 @@
+header:
+  schema-version: 1.0.0
+  expiration-date: "2027-06-26T00:00:00.000Z"
+  last-updated: "2026-06-26"
+  last-reviewed: "2026-06-26"
+  project-url: https://github.com/ShieldZCash/shieldz-sdk
+  license: https://github.com/ShieldZCash/shieldz-sdk/blob/main/LICENSE
+project-lifecycle:
+  status: active
+  bug-fixes-only: false
+  core-maintainers:
+    - https://github.com/DenizYanbollu
+contribution-policy:
+  accepts-pull-requests: true
+  accepts-automated-pull-requests: true
+distribution-points:
+  - https://www.npmjs.com/package/@shieldz/sdk
+documentation:
+  - https://shieldz.cash/docs
+security-contacts:
+  - type: email
+    value: support@shieldz.cash
+vulnerability-reporting:
+  accepts-vulnerability-reports: true
+  email-contact: support@shieldz.cash
+  security-policy: https://github.com/ShieldZCash/shieldz-sdk/blob/main/SECURITY.md
+dependencies:
+  third-party-packages: false
+  dependencies-lifecycle:
+    policy: "Zero runtime dependencies by design; dev dependencies tracked by Dependabot."

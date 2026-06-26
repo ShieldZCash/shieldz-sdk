@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "@shieldz/sdk"
+abstract: "Official Node/TypeScript SDK for Shieldz — non-custodial crypto payments. Zero runtime dependencies."
+type: software
+authors:
+  - family-names: Yanbollu
+    given-names: Deniz
+    alias: dnzynbl
+repository-code: "https://github.com/ShieldZCash/shieldz-sdk"
+url: "https://shieldz.cash"
+license: MIT
+version: 0.2.1

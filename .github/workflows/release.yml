@@ -3,8 +3,9 @@ on:
   push:
     tags: ["v*"]
 permissions:
-  contents: read
-  id-token: write # npm provenance
+  contents: write # upload release assets
+  id-token: write # npm provenance + cosign keyless
+  attestations: write # build provenance attestation
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -16,6 +17,29 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm install
       - run: npm test
-      - run: npm publish --provenance --access public
+      - name: Generate SBOM (CycloneDX)
+        run: npx --yes @cyclonedx/cyclonedx-npm --output-file sbom.cdx.json
+      - name: Pack tarball
+        run: npm pack
+      - name: Checksums
+        run: sha256sum *.tgz sbom.cdx.json > SHASUMS256.txt
+      - name: Publish to npm (with provenance)
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: "*.tgz"
+      - uses: sigstore/cosign-installer@v3
+      - name: Cosign keyless sign checksums
+        run: cosign sign-blob --yes SHASUMS256.txt --output-signature SHASUMS256.txt.sig --output-certificate SHASUMS256.txt.pem
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.tgz
+            sbom.cdx.json
+            SHASUMS256.txt
+            SHASUMS256.txt.sig
+            SHASUMS256.txt.pem

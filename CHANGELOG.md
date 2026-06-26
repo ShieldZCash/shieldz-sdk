@@ -3,6 +3,13 @@
 All notable changes to `@shieldz/sdk` are documented here. This project follows
 [Semantic Versioning](https://semver.org).
 
+## [0.2.2] — 2026-06-26
+
+### Changed
+- Released through a hardened CI pipeline: npm provenance, CycloneDX SBOM,
+  SHA-256 checksums, and a Sigstore (cosign) signature attached to each release.
+- Expanded package keywords.
+
 ## [0.2.1] — 2026-06-26
 
 ### Added
