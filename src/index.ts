@@ -17,6 +17,21 @@ export type {
   Mode,
   WebhookEvent,
   WebhookEventType,
+  LineItem,
+  LineItemParams,
+  ShippingAddress,
+  Product,
+  ProductCreateParams,
+  ProductUpdateParams,
+  Price,
+  PriceData,
+  PriceCreateParams,
+  PaymentLink,
+  PaymentLinkCreateParams,
+  PaymentLinkUpdateParams,
+  PaymentLinkLineParams,
+  AfterCompletion,
 } from "./types.js";
+export { Products, Prices, PaymentLinks } from "./catalog.js";
 
 export default Shieldz;

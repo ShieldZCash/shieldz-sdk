@@ -1,7 +1,8 @@
 import { ShieldzError } from "./errors.js";
 import { Invoices } from "./invoices.js";
+import { PaymentLinks, Prices, Products } from "./catalog.js";
 
-const VERSION = "0.2.2";
+const VERSION = "0.3.0";
 const DEFAULT_BASE_URL = "https://shieldz.cash/api/v1";
 
 export interface ShieldzOptions {
@@ -35,6 +36,9 @@ function randomId(): string {
 
 export class Shieldz {
   readonly invoices: Invoices;
+  readonly products: Products;
+  readonly prices: Prices;
+  readonly paymentLinks: PaymentLinks;
 
   private readonly apiKey: string;
   private readonly baseUrl: string;
@@ -60,6 +64,9 @@ export class Shieldz {
     this.maxRetries = Math.max(0, opts.maxRetries ?? 2);
     this.maxRetryDelayMs = opts.maxRetryDelayMs ?? 8_000;
     this.invoices = new Invoices(this);
+    this.products = new Products(this);
+    this.prices = new Prices(this);
+    this.paymentLinks = new PaymentLinks(this);
   }
 
   async request<T>(

@@ -65,6 +65,43 @@ for await (const invoice of shieldz.invoices.listAll({ status: "paid" })) {
 }
 ```
 
+### Products, prices & payment links
+
+Sell from a catalog, the way Stripe does: prices live in Shieldz, so a buyer's
+browser can never change what they pay.
+
+```ts
+const hoodie = await shieldz.products.create({
+  name: "Blue hoodie",
+  default_price_data: { unit_amount_usd_cents: 4999 },
+});
+
+// A hosted page (link.url) and the target of the widget's buy button:
+//   <button data-shieldz-link="plink_…">Buy now</button>
+const link = await shieldz.paymentLinks.create({
+  line_items: [{ product: hoodie.id, adjustable_quantity: { enabled: true, minimum: 1, maximum: 5 } }],
+  collect_shipping_address: true,
+});
+
+// Or price an order on your server from line items:
+const invoice = await shieldz.invoices.create({
+  line_items: [
+    { price: hoodie.default_price!.id, quantity: 2 },
+    { price_data: { name: "Gift wrap", unit_amount_usd_cents: 300 } },
+  ],
+  client_reference_id: "A-1043",
+});
+```
+
+Paid invoices carry `line_items`, `payment_link`, `client_reference_id` and,
+when the link asked for it, `shipping`.
+
+Products and payment links have no test mode: a link takes real payments
+whichever key made it. To try a priced checkout without real money, create an
+invoice with `line_items` and an `sk_test_` key. A checkout's total must be
+from $1 to $100,000. The full walkthrough is in
+[`examples/catalog.ts`](examples/catalog.ts).
+
 ### Retries & idempotency
 
 Transient failures (network errors, timeouts, `429`, and `5xx`) are retried automatically with exponential backoff + jitter — `2` retries by default, honouring `Retry-After`. To make a retried `POST /invoices` safe, the SDK auto-attaches an `idempotency_key`, so a create can never duplicate. Pass your own `idempotency_key` to tie it to your order id:
